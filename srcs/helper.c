@@ -52,13 +52,13 @@ void pdf_add_lines_header(struct pdf_doc *pdf, int mm){
 void pdf_add_doc_no(struct pdf_doc *pdf, int mm, char doc_type[4], char doc_no[20]){
     char doc_txt[100]="";
 
-    if(strcmp(doc_type, "0") == 0) {
-      strcat(doc_txt, "Offre N° OC");
-    }else if (strcmp(doc_type, "1") == 0){
-      strcat(doc_txt, "Confirmation de commande N° CV");
-    }else if (strcmp(doc_type, "2") == 0){
-      strcat(doc_txt, "Facture N° FA");
-    }
+  if (strcmp(doc_type, "FA") == 0)
+    strcat(doc_txt, "Facture N° FA");
+  else if (strcmp(doc_type, "CV") == 0)
+    strcat(doc_txt, "Confirmation de commande N° CV");
+  else if (strcmp(doc_type, "OC") == 0)
+    strcat(doc_txt, "Offre N° OC");
+
     strcat(doc_txt, doc_no);
     pdf_add_text(pdf, NULL, doc_txt, 12, LEFT_MARGIN, PDF_MM_TO_POINT(mm), PDF_BLACK);
 }

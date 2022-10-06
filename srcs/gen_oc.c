@@ -1,6 +1,6 @@
 #include "laendrun.h"
 
-void gen_fa(t_document document, t_config config)
+void gen_oc(t_document document, t_config config)
 {
   FILE *customers;
   FILE *sales_lines;
@@ -66,7 +66,7 @@ void gen_fa(t_document document, t_config config)
   pdf_add_header(pdf, config.logo_path);
 
   mm = pdf_add_dest_adr(pdf, mm, cust.cust_no, cust.name, cust.name2, cust.adr, cust.adr2, cust.city, cust.npa);
-  pdf_add_doc_no(pdf, mm, "FA", document.number);
+  pdf_add_doc_no(pdf, mm, "OC", document.number);
 
   mm = mm-20;
   pdf_add_lines_header(pdf, mm);
@@ -135,8 +135,6 @@ void gen_fa(t_document document, t_config config)
   }
 
   pdf_add_total_line(pdf, f_total_amount, mm);
-  pdf_add_invoice_page(pdf, f_total_amount, config.twint_qr_path, config.twint_dir_path, config.logo_path);
-  total_pages++;
 
   for (int i=0; i<=total_pages; i++){
     char page_txt[25] = "Page ";
@@ -150,7 +148,7 @@ void gen_fa(t_document document, t_config config)
     pdf_add_text(pdf, pages[i], page_txt, 12, PDF_MM_TO_POINT(160), PDF_MM_TO_POINT(250), PDF_BLACK);
   }
   char output_path[50];
-  strcat(output_path, "./factures/FA");
+  strcat(output_path, "./offres/OC");
   strcat(output_path, document.number);
   strcat(output_path, ".pdf");
   pdf_save(pdf, output_path);

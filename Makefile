@@ -1,4 +1,4 @@
-SRC = $(addprefix $(SRC_DIR)/, check.c main.c gen_fa.c errors.c helper.c cJSON.c pdfgen.c)
+SRC = $(addprefix $(SRC_DIR)/, check.c main.c gen_fa.c gen_cv.c gen_oc.c errors.c helper.c cJSON.c pdfgen.c)
 
 SRC_DIR := srcs
 OBJ_DIR := objs

@@ -30,13 +30,11 @@ int	main(int ac, char **av)
 
 		if (document.type == 0)
 		{
-			ft_putstr("Not implemented yet");
-			//gen_oc(document);
+			gen_oc(document, config);
 		}
 		else if (document.type == 1)
 		{
-			ft_putstr("Not implemented yet");
-			//gen_cv(document);
+			gen_cv(document, config);
 		} 
 		else if (document.type == 2)
 		{

@@ -51,8 +51,13 @@ int		ft_char_is_num(char c);
 int		ft_str_is_num(char *str);
 int		ft_check_client_format(char *str);
 
+// Document generations
 // gen_fa.c
 void gen_fa(t_document document, t_config config);
+// gen_oc.c
+void gen_oc(t_document document, t_config config);
+// gen_cv.c
+void gen_cv(t_document document, t_config config);
 
 // helper.c
 void pdf_add_header(struct pdf_doc *pdf, char *logo_path);
